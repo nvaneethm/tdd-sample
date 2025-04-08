@@ -1,0 +1,68 @@
+name: CI/CD
+
+# Trigger the workflow on push or pull request events to the main branch.
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      # Test on multiple Node versions if desired.
+      matrix:
+        node-version: [16, 18]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      # Set up Node.js environment.
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version:
+            ${{ matrix.node-version }}
+
+     # Install dependencies.
+      - name: Install dependencies
+        run: npm install
+
+      # Run tests.
+      - name: Run tests
+        run: npm test -- --watchAll=false
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Install dependencies again in the deploy job.
+      - name: Install dependencies
+        run: npm install
+
+      # Build the app.
+      - name: Build the React App
+        run: npm run build
+
+      # Deploy to GitHub Pages using the official action.
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages 
+          folder: build 
+          clean: true 
+          token: ${{ secrets.GITHUB_TOKEN }}
