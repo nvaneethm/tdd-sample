@@ -21,4 +21,9 @@ describe("String Calculator", () => {
     expect(addString("//;\n1;2")).toBe(3)
     expect(addString("//|\n1|2|3")).toBe(6)
   })
+  test("throws an exception for negative numbers with the negatives in the message", () => {
+    expect(() => addString("1,-2,3,-4")).toThrow(
+      "negatives not allowed: -2, -4"
+    )
+  })
 })
