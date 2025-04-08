@@ -3,6 +3,8 @@ import "./CalculatorUI.css"
 
 const CalculatorUI = () => {
   const [input, setInput] = useState("")
+  const [result, setResult] = useState(null)
+  const [error, setError] = useState("")
 
   const handleCalculate = () => {}
 
@@ -24,6 +26,8 @@ const CalculatorUI = () => {
           onChange={(e) => setInput(e.target.value)}
         />
         <button onClick={handleCalculate}>Calculate</button>
+        {result !== null && <p className="result">Result: {result}</p>}
+        {error && <p className="error">Error: {error}</p>}
       </div>
     </div>
   )
