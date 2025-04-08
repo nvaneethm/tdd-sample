@@ -34,6 +34,11 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(.*@testing-library.*))"
+    ]
+  },
   "devDependencies": {
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1"
