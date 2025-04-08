@@ -49,3 +49,15 @@
 .calculator-card button:hover {
   background-color: #005bb5;
 }
+
+.result {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.error {
+  margin-top: 1rem;
+  color: #ff0000;
+  font-weight: bold;
+}
