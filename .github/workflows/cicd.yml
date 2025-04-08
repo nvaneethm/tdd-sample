@@ -26,10 +26,9 @@ jobs:
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version:
-            ${{ matrix.node-version }}
+          node-version: ${{ matrix.node-version }}
 
-     # Install dependencies.
+      # Install dependencies.
       - name: Install dependencies
         run: npm install
 
@@ -62,7 +61,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages 
-          folder: build 
-          clean: true 
-          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: build
+          clean: true
+          token: ${{ secrets.GH_PAGES_TOKEN }}
