@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { addString } from "../../services/StringCalculator"
 import "./CalculatorUI.css"
 
 const CalculatorUI = () => {
@@ -6,7 +7,16 @@ const CalculatorUI = () => {
   const [result, setResult] = useState(null)
   const [error, setError] = useState("")
 
-  const handleCalculate = () => {}
+  const handleCalculate = () => {
+    try {
+      const sum = addString(input)
+      setResult(sum)
+      setError("")
+    } catch (err) {
+      setResult(null)
+      setError(err.message)
+    }
+  }
 
   return (
     <div className="calculator-container">
