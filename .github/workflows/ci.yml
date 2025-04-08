@@ -1,0 +1,38 @@
+name: CI
+
+# Trigger the workflow on push or pull request events to the main branch.
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      # Test on multiple Node versions if desired.
+      matrix:
+        node-version: [14, 16, 18]
+
+    steps:
+      # Check out the code from the repository.
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      # Set up Node.js environment.
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Install dependencies.
+      - name: Install dependencies
+        run: npm install
+
+      # Run tests.
+      - name: Run tests
+        run: npm test -- --watchAll=false
