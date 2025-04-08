@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# TDD String Calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple React-based string calculator built using Test Driven Development (TDD).  
+This project demonstrates a calculator that accepts a string of numbers (and custom delimiters) and returns their sum, along with proper error handling for invalid inputs such as negative numbers.
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+This project uses TDD practices with Jest and React Testing Library.  
+The application consists of a UI component that interacts with a string calculator service.  
+It validates the input string, processes different delimiters, and handles errors gracefully.
 
-### `npm start`
+The application is automatically built and deployed to GitHub Pages.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **TDD Development:**  
+  Follows the "Red → Green → Refactor" cycle to ensure robust code and tests.
+- **Custom Delimiters:**  
+  Supports changing delimiters using a syntax like `//[delimiter]\n[numbers]`.
+- **Error Handling:**  
+  Throws an error with a clear message if negative numbers are provided.
+- **Responsive UI:**  
+  A simple, clean UI built with React.
+- **CI/CD:**  
+  Continuous Integration and Deployment set up using GitHub Actions (deploys to GitHub Pages).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Deployment
+  
+  This project is automatically deployed to GitHub Pages using GitHub Actions.
 
-### `npm run build`
+  **Deployed URL: https://nvaneethm.github.io/tdd-sample/**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  
+  **The deployment workflow:**
+  - Runs tests on pushes and pull requests to the main branch.
+  - Builds the project.
+  - Deploys the contents of the build folder to the gh-pages branch, which is then served by GitHub Pages.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  
