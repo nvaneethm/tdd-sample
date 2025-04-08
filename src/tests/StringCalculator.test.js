@@ -8,4 +8,7 @@ describe("String Calculator", () => {
     expect(addString("5")).toBe(5)
     expect(addString("42")).toBe(42)
   })
+  test("returns the sum for two numbers separated by a comma", () => {
+    expect(addString("1,2")).toBe(3)
+  })
 })
