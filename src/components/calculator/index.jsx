@@ -36,8 +36,16 @@ const CalculatorUI = () => {
           onChange={(e) => setInput(e.target.value)}
         />
         <button onClick={handleCalculate}>Calculate</button>
-        {result !== null && <p className="result">Result: {result}</p>}
-        {error && <p className="error">Error: {error}</p>}
+        {result !== null && (
+          <p className="result" data-testid="result">
+            Result: {result}
+          </p>
+        )}
+        {error && (
+          <p className="error" data-testid="error">
+            Error: {error}
+          </p>
+        )}
       </div>
     </div>
   )
