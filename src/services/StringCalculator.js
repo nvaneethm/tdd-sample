@@ -1,4 +1,5 @@
 // here we implement the main add functions
+import { extractDelimiter } from "../utils"
 export const addString = (numbers) => {
   if (numbers === "") {
     return 0
@@ -9,18 +10,10 @@ export const addString = (numbers) => {
   const negatives = []
 
   if (numbers.startsWith("//")) {
-    const newlineIndex = numbers.indexOf("\n")
-    const customDelimiter = numbers.substring(2, newlineIndex)
-
-    const escapedDelimiter = customDelimiter.replace(
-      /[-\/\\^$*+?.()|[\]{}]/g,
-      "\\$&"
-    )
-    delimiterRegex = new RegExp(escapedDelimiter + "|\n")
-
-    numbers = numbers.substring(newlineIndex + 1)
+    const result = extractDelimiter(numbers)
+    delimiterRegex = result.delimiter
+    numbers = result.numbers
   }
-
   const nums = numbers.split(delimiterRegex)
 
   nums.forEach((token) => {
